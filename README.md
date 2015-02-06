@@ -1,8 +1,7 @@
 # Angular - Gulp Workflow
 
-`npm install gulp`
-For Git/Bower:
-`git config --global url."https://".insteadOf git://`
++ `npm install gulp`
+ - For Git/Bower: `git config --global url."https://".insteadOf git://`
 
 + Add proxy information to .bowerrc, .npmrc, .gitconfig, etc.
 + `npm install`
@@ -13,13 +12,11 @@ For Git/Bower:
 +  Deploy to production with `gulp production`
 
 ## Workflow Notes:
----------------------
 ### When you want to install a new bower package that is not included:
 
 + You `bower install [app] --save`
 	* That will install [app] to `/vendor` and also save it on the bower.json (should be saved to bower.json already with `--save` param).
-+ Then you will need to tell Gulp that you want to load it, for that you need to `open /vendor/manifest.js` and modify it like:
->
++ Then you will need to tell Gulp that you want to load it, for that you need to open `/vendor/manifest.js` and modify it like:
 ```javascript
 exports.javascript = [
   'vendor/angular/angular.js',
@@ -27,9 +24,23 @@ exports.javascript = [
   'vendor/[app]/dist/[app].js'
 ];
 ```
+### Templates
+Currently, you need to place templates in their respective component folders and also name them with the convention: `[templatename].tpl.html`
 
-### With gulp-ng-annotate, you can leave out annotations in Angular:
+The `app/index.html` - Is using lo-dash templates, which look like this:
 
+``` html	
+<link rel="stylesheet" href="<%= css %>">
+<script type="text/javascript" src="<%= js %>"></script>
+</code>
+```
+This is important for the static revisioning, because the versioned css and js can be appended at these locations each time you build.
+
+The `dist/index.html` will have the correctly versioned `app.css` and `app.js` files
+
+### gulp-ng-annotate
+
+You can leave out annotations in Angular:
 i.e:
 ``` javascript
 angular.module("MyMod").controller("MyCtrl", function($scope, $timeout) {
@@ -41,7 +52,7 @@ angular.module("MyMod").controller("MyCtrl", ["$scope", "$timeout", function($sc
 }]);
 ```
 
-### Angular-template-cache
+### angular-template-cache
 + You can specify the template module name in:
 ``` javascript
 function buildTemplates() {
@@ -58,7 +69,7 @@ function buildTemplates() {
 }
 ```
 
-+ Notice: 'module: [Name of Main Module]'
++ Notice: `module: [Name of Main Module]`
 
 The default name (when no module is specified) is 'templates' which creates a `templates.js` file
 
@@ -71,24 +82,10 @@ You can ng-include the put text from the created templateCache
 
 Then in the index.html
 ``` html
- <div src=" 'shared/modal/modal.tpl.html'" ng-include></div>  
+ <div src=" 'shared/modal/modal.tpl.html' " ng-include></div>  
 ```
  or
  ``` javascript
  $templateCache.get('shared/modal/modal.tpl.html')
 ```
- The included example is using ng-include
- 
-### Templates
-+ Currently, you need to place templates in their respective component folders and also name them with the convention: `'[templatename].tpl.html'`
-
-5)  The `app/index.html` - Is using lo-dash templates, which look like this:
-
-``` html	
-<link rel="stylesheet" href="<%= css %>">
-<script type="text/javascript" src="<%= js %>"></script>
-</code>
-```
-This is important for the static revisioning, because the versioned css and js can be appended at these locations each time you build.
-
-The `dist/index.html` will have the correctly versioned `app.css` and `app.js` files
+ The included example is using `ng-include`
