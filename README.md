@@ -38,7 +38,11 @@ This workflow is based off of [github.com/Foxandxss/fox-angular-gulp-workflow](h
     |-- vendor  
 ```
 + The index.html will refer to the `app.css` and `app.js` with unique revision numbers
-- Example: ```<link rel="stylesheet" href="/css/app-ee36da13.css">``` 	
+- Example: 
+ ```html
+ <link rel="stylesheet" href="/css/app-ee36da13.css">
+``` 	
+
 ## Workflow Notes:
 ### When you want to install a new bower package that is not included:
 
