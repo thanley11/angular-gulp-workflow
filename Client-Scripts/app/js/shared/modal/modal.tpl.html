@@ -1,0 +1,84 @@
+<script type="text/ng-template" id="modal.tpl.html">
+<div class="modal-header">
+<div ng-controller="checkBoxController">
+    
+    
+    <form name="frm" ng-submit="submitForm(frm.$valid);" novalidate>
+    
+    
+        <div class="row"> 
+            <div class="col-xs-12">
+                <div class="form-group" ng-class="{'has-error' : frm.execselect.$invalid && frm.execselect.$pristine && submitted }">
+                    <select class="form-control" name="execselect" ng-model="exec.value" ng-options="exec.value for exec in execs" required>
+                        <option value="">Select an Executable</option>
+                    </select>
+                    <p ng-show="frm.execselect.$invalid && frm.execselect.$pristine && submitted" class="help-block">Please select an exec!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group" ng-class="{'has-error' : frm.pridselect.$invalid && frm.pridselect.$pristine && submitted }">
+                    <select name="pridselect" class="form-control" ng-model="prid.value" ng-options="prid.value for prid in prids" ng-change="startServerSelect(prid.value)" required >
+                        <option value="">Select a Prid</option>
+                    </select>
+                    <p ng-show="frm.pridselect.$invalid && frm.pridselect.$pristine && submitted" class="help-block">Please select a prid!</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="isServerSelection" >
+            <div >
+                <div class="col-xs-4 col-xs-offset-1" >
+                    <div ng-class="{'has-error' : submitted && !isServersToDeploy }">
+                    <span  class="selected-item">Available Servers:</span>
+                     <div ng-repeat="server in servers">
+                       <div class="action-checkbox">
+                        <input id="{{server.name}}" 
+                                type="checkbox" 
+                                value="{{server.num}}"
+                               ng-checked="false"
+                                ng-click="toggleSelection(server.name, server.num, server.alias)"
+                               />
+                        <label for="{{server.name}}"> {{server.alias}}</label>
+                       </div>
+                      </div>
+                         <div class="row">
+                           <p ng-show="submitted && !isServersToDeploy" class="help-block">Please select at least one server</p>
+                         </div>
+
+                  </div>
+                </div>
+                <div class="col-xs-4 col-xs-offset-2"  > 
+                    <div >
+                        <span  class="selected-item">Servers to Deploy:</span>
+                            <div ng-repeat="name in selectedServers" class="selected-item">
+                                <label for="{{name.alias}}">{{name.alias}}</label>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <br />
+    
+
+    <hr width="50%"/>
+	<div class="row" >
+        <div class="text-center" ng-hide="disableButton" >
+			 <button class="btn btn-danger" ng-click="cancel()" >Cancel</button>
+			 <button type="submit" class="btn btn-success" >Deploy</button>
+		</div>
+        <div class="text-center" ng-show="isLoader">
+            <img style="height:150px; width:150px;" src="images/ajax-loader.gif"/>
+        </div>
+        <div>
+            <p class="text-center" ng-show="isComplete"> The executable has been deployed</p>
+        </div>
+
+    	
+	</div>
+      </div> 
+    </form>
+</div>
+</script>  

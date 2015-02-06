@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html  ng-app="ui.bootstrap.demo">
+
+  <head>
+  	<link rel="stylesheet" href="<%= css %>">
+    <meta charset="utf-8" />
+    <title>Modal Template Example</title>
+  </head>
+<body>
+<div ng-controller="ModalDemoCtrl">
+      <h2>Modal Template Example</h2>
+
+     <div src=" 'shared/modal/modal.tpl.html'" ng-include></div>  
+     <div src="'shared/modal/modal2.tpl.html'" ng-include></div>  
+     <button class="btn-primary" ng-click="open('modal.tpl.html')"> Open it</button>  
+     <button class="btn-primary" ng-click="open('modal2.tpl.html')"> Open another</button>
+     <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+</div>
+
+	 <script type="text/javascript" src="<%= js %>"></script>
+</body>
+</html>
+

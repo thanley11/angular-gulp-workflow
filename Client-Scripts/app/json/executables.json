@@ -1,0 +1,91 @@
+[
+        {
+ 
+                "id": "1", 
+				"value": "buffet.msi", 
+ 
+                "text": "buffet.msi"
+ 
+        }, 
+        {
+                "id": "2",
+                "value": "buffetform.msi",
+ 
+                "text": "buffetform.msi"
+        }, 
+        {
+                 "id": "3",
+                "value": "CapMarksFulfiller.msi", 
+ 
+                "text": "CapMarksFulfiller.msi"
+
+ 
+        }, 
+        {
+                "id": "4",
+                "value": "catalogPDF.msi", 
+ 
+                "text": "catalogPDF.msi"
+            
+ 
+        }, 
+        {
+                "id": "5",
+                "value": "catalogPDFText.msi",
+           
+ 
+                "text": "catalogPDFText.msi"
+ 
+        }, 
+        {
+                "id": "6",
+                "value": "catalogRfrPdf.msi",
+ 
+                "text": "catalogRfrPdf.msi"
+            
+ 
+        }, 
+        {
+                "id": "7",
+                "value": "CConweb_fulfiller.msi", 
+ 
+                "text": "CConweb_fulfiller.msi"
+ 
+        }, 
+        {
+                 "id": "8",
+                "value": "CharonremotingService.msi", 
+ 
+                "text": "CharonremotingService.msi"
+ 
+        }, 
+        {
+                "id": "9",
+                "value": "ChartSchedulerInstaller.msi",
+ 
+                "text": "ChartSchedulerInstaller.msi"
+ 
+        }, 
+        {
+               "id": "10",
+                "value": "chli.msi",
+ 
+                "text": "chli.msi"
+
+        }, 
+        {
+                "id": "11",
+                "value": "CHLIDotNet.msi",
+ 
+                "text": "CHLIDotNet.msi"
+ 
+        }, 
+        {
+                "id": "12",
+                "value": "CISService.msi",
+				
+                "text": "CISService.msi"
+ 
+        }
+]
+ 
