@@ -1,5 +1,5 @@
 # Angular - Gulp Workflow
-This workflow is based off of [github.com/Foxandxss/fox-angular-gulp-workflow](https://github.com/Foxandxss/fox-angular-gulp-workflow) and it has more documentation on the LiveReload server and proxy middleware.
+This workflow is based off of [github.com/Foxandxss/fox-angular-gulp-workflow](https://github.com/Foxandxss/fox-angular-gulp-workflow) and it has more documentation on the [LiveReload server](https://github.com/vohof/gulp-livereload) and [proxy middleware](https://github.com/andrewrk/connect-proxy).
 
 + Run `npm install gulp`
  - For proxy, you might need to change the .gitconfig: `git config --global url."https://".insteadOf git://`
@@ -10,8 +10,34 @@ This workflow is based off of [github.com/Foxandxss/fox-angular-gulp-workflow](h
 	* Also, usually need to edit `vendor/manifest.js` but it is filled out this time. (see below under Workflow Notes) This is so Gulp can gather the filepaths to vendor (bower) files.
 	* This will run a `bower install` automatically
 + Run `gulp`
++ This will create this file structure
+```
+    |-- Client-Scripts
+    |   |-- app
+    |   |-- tmp
+    |       index.html	
+    |       |-- css
+    |       |-- images
+    |       |-- js
+    |  
+```
++ The index.html will refer to `app.css` and `app.js`
+- Example: ```<link rel="stylesheet" href="/css/app.css">``` 	
++ Also, the code will be minified, concatenated, and all AngularJS code will be handled, templates put in $templateCache, etc.
 +  Deploy to production with `gulp production`
-
+```
+    |-- Client-Scripts
+    |   |-- app
+    |   |-- tmp
+    |   |-- dist
+    |       index.html	
+    |       |-- css
+    |       |-- images
+    |       |-- js
+    |  
+```
++ The index.html will refer to the `app.css` and `app.js` with unique revision numbers
+- Example: ```<link rel="stylesheet" href="/css/app-ee36da13.css">``` 	
 ## Workflow Notes:
 ### When you want to install a new bower package that is not included:
 
