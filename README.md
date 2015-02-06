@@ -1,12 +1,13 @@
 # Angular - Gulp Workflow
+This workflow is based off of [github.com/Foxandxss/fox-angular-gulp-workflow](https://github.com/Foxandxss/fox-angular-gulp-workflow) and it has more documentation on the LiveReload server and proxy middleware.
 
 + Run `npm install gulp`
- - For Git/Bower: `git config --global url."https://".insteadOf git://`
+ - For proxy, you might need to change the .gitconfig: `git config --global url."https://".insteadOf git://`
 
 + Add proxy information to .bowerrc, .npmrc, .gitconfig, etc.
 + Run `npm install`
 	* Might need to select option `2` for Angular 1.3.12
-	* Also, usually need to edit `vendor/manifest.js` but it is filled out this time!  This is so Gulp can gather the filepaths to vendor (bower) files.
+	* Also, usually need to edit `vendor/manifest.js` but it is filled out this time. (see below under Workflow Notes) This is so Gulp can gather the filepaths to vendor (bower) files.
 	* This will run a `bower install` automatically
 + Run `gulp`
 +  Deploy to production with `gulp production`
@@ -32,13 +33,17 @@ The `app/index.html` - Is using lo-dash templates, which look like this:
 ``` html	
 <link rel="stylesheet" href="<%= css %>">
 <script type="text/javascript" src="<%= js %>"></script>
-</code>
 ```
 This is important for the static revisioning, because the versioned css and js can be appended at these locations each time you build.
 
 The `dist/index.html` will have the correctly versioned `app.css` and `app.js` files
+### [gulp-rev](https://github.com/sindresorhus/gulp-rev)
 
-### gulp-ng-annotate
+This allows for static revisioning of files.  The lodash templates allow you to append the new revision numbered static files each time you run `gulp production`.
+
+A `manifest.json` file is created inside the respective `js` or `css` folder that contains the most recent revision and associates it with `app.css` or `app.js` depending on the type of static asset you have run through gulp-rev.
+
+### [gulp-ng-annotate](https://github.com/Kagami/gulp-ng-annotate)
 
 You can leave out annotations in Angular:
 i.e:
@@ -52,7 +57,7 @@ angular.module("MyMod").controller("MyCtrl", ["$scope", "$timeout", function($sc
 }]);
 ```
 
-### angular-template-cache
+### [angular-template-cache](https://github.com/miickel/gulp-angular-templatecache)
 + You can specify the template module name in:
 ``` javascript
 function buildTemplates() {
