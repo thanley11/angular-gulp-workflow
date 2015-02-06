@@ -28,7 +28,7 @@ exports.javascript = [
 ### Templates
 Currently, you need to place templates in their respective component folders and also name them with the convention: `[templatename].tpl.html`
 
-The `app/index.html` - Is using lo-dash templates, which look like this:
+The `app/index.html` - Is using [lo-dash templates](https://github.com/sindresorhus/gulp-template), which look like this:
 
 ``` html	
 <link rel="stylesheet" href="<%= css %>">
@@ -41,7 +41,7 @@ The `dist/index.html` will have the correctly versioned `app.css` and `app.js` f
 
 This allows for static revisioning of files.  The lodash templates allow you to append the new revision numbered static files each time you run `gulp production`.
 
-A `manifest.json` file is created inside the respective `js` or `css` folder that contains the most recent revision and associates it with `app.css` or `app.js` depending on the type of static asset you have run through gulp-rev.
+A `rev-manifest.json` file is created inside the respective `js` or `css` folder that contains the most recent revision and associates it with `app.css` or `app.js` depending on the type of static asset you have run through gulp-rev.
 
 ### [gulp-ng-annotate](https://github.com/Kagami/gulp-ng-annotate)
 
