@@ -91,4 +91,3 @@ Then in `app/index.html`
  ``` javascript
  $templateCache.get('shared/modal/modal.tpl.html')
 ```
- The included example is using `ng-include`
