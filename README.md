@@ -19,7 +19,8 @@ This workflow is based off of [github.com/Foxandxss/fox-angular-gulp-workflow](h
     |       |-- css
     |       |-- images
     |       |-- js
-    |  
+    |-- vendor  
+
 ```
 + The index.html will refer to `app.css` and `app.js`
 - Example: ```<link rel="stylesheet" href="/css/app.css">``` 	
@@ -34,7 +35,7 @@ This workflow is based off of [github.com/Foxandxss/fox-angular-gulp-workflow](h
     |       |-- css
     |       |-- images
     |       |-- js
-    |  
+    |-- vendor  
 ```
 + The index.html will refer to the `app.css` and `app.js` with unique revision numbers
 - Example: ```<link rel="stylesheet" href="/css/app-ee36da13.css">``` 	
