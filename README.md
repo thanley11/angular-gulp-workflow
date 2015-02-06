@@ -6,7 +6,7 @@
 + Add proxy information to .bowerrc, .npmrc, .gitconfig, etc.
 + `npm install`
 	* Might need to select option `2` for Angular 1.3.12
-	* Also, usually need to edit manifest.js in vendor folder, but it is filled out this time!  This is so Gulp can gather the filepaths to vendor (bower) files.
+	* Also, usually need to edit `vendor/manifest.js` but it is filled out this time!  This is so Gulp can gather the filepaths to vendor (bower) files.
 	* This will run a `bower install` automatically
 + `gulp`
 +  Deploy to production with `gulp production`
@@ -69,18 +69,16 @@ function buildTemplates() {
 }
 ```
 
-+ Notice: `module: [Name of Main Module]`
++ Notice: `module: [Name of Main Module]`. The default name (when no module is specified) is 'templates' which creates a `templates.js` file
 
-The default name (when no module is specified) is 'templates' which creates a `templates.js` file
-
-i.e.
+Example:
 ``` javascript
 $templateCache.put("shared/modal/modal.tpl.html", ....
 ```
-You can ng-include the put text from the created templateCache
+You can `ng-include` the put text from the created templateCache
 
 
-Then in the index.html
+Then in `app/index.html`
 ``` html
  <div src=" 'shared/modal/modal.tpl.html' " ng-include></div>  
 ```
