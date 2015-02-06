@@ -1,20 +1,20 @@
 # Angular - Gulp Workflow
 
-+ `npm install gulp`
++ Run `npm install gulp`
  - For Git/Bower: `git config --global url."https://".insteadOf git://`
 
 + Add proxy information to .bowerrc, .npmrc, .gitconfig, etc.
-+ `npm install`
++ Run `npm install`
 	* Might need to select option `2` for Angular 1.3.12
 	* Also, usually need to edit `vendor/manifest.js` but it is filled out this time!  This is so Gulp can gather the filepaths to vendor (bower) files.
 	* This will run a `bower install` automatically
-+ `gulp`
++ Run `gulp`
 +  Deploy to production with `gulp production`
 
 ## Workflow Notes:
 ### When you want to install a new bower package that is not included:
 
-+ You `bower install [app] --save`
++ You run `bower install [app] --save`
 	* That will install [app] to `/vendor` and also save it on the bower.json (should be saved to bower.json already with `--save` param).
 + Then you will need to tell Gulp that you want to load it, for that you need to open `/vendor/manifest.js` and modify it like:
 ```javascript
