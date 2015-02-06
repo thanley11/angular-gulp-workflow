@@ -111,7 +111,7 @@ Example:
 ``` javascript
 $templateCache.put("shared/modal/modal.tpl.html", ....
 ```
-You can `ng-include` the put text from the created templateCache
+You can `ng-include` from the created templateCache
 
 
 Then in `app/index.html`
