@@ -1,5 +1,5 @@
 {
-  "name": "fox-angular-gulp-workflow",
+  "name": "angular-gulp-workflow",
   "version": "0.1.0",
   "description": "A workflow for Angular made with Gulp",
   "scripts": {
@@ -7,15 +7,12 @@
     "test": "gulp testem"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/Foxandxss/fox-angular-gulp-workflow.git"
+  "type": "git",
+  "url": "https://github.com/thanley11/angular-gulp-workflow.git"
   },
-  "author": "Jesus Rodriguez",
+  "author": "Tom Hanley",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Foxandxss/fox-angular-gulp-workflow/issues"
-  },
-  "homepage": "https://github.com/Foxandxss/fox-angular-gulp-workflow",
+  "homepage": "https://github.com/thanley11/angular-gulp-workflow",
   "devDependencies": {
     "connect-history-api-fallback": "0.0.5",
     "del": "^1.1.1",
